@@ -1,0 +1,71 @@
+Componentes funcionales
+
+-Importar react (opcional)
+
+
+-Hacer una funcion
+
+//componente App
+import React from "react"
+
+const App = () => {
+  return <h1>Hola mundo por default</h1>;
+}
+
+
+
+-La funcion debe retornar algo (es lo que se mostrara. Solo un solo elemento. recordar <> </>). Debe empezar con mayuscula
+
+//exporto App por defaul (ver como lo importo en index)
+export default App;
+
+
+
+
+-Se debe exportar la funcion (por defecto o no) -> Ej: import App, { Componente } from './App'; //App por defecto, Componente no
+
+En index.js
+
+import App from './App';
+
+
+
+
+-Cada componente que tenga su propio css
+
+-Instalo dependencia para estilos en react desde https://mui.com/
+npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material
+
+-------------------------------------------------------------------------------------------
+
+Componentes
+-Props (informacion que llega por medio de los parametros)
+  const MiFuncion = (parametro) => {
+
+  }
+
+  o
+
+  function MiFuncion (parametros){}
+
+Se puede pasar componentes por props:
+  
+  return (
+    <>
+      <Navbar titulo = { tituloPagina } >
+        <UnComponente />    //se llaman children  y asi se invocaran desde el componente receptor
+        <OtroComponente />
+      </Navbar> 
+    </>
+  );
+
+  invocacion desde el Navbar:
+
+  const Navbar = ( { titulo , children } ) => { ...
+
+
+
+-States
+-Ciclo de vida
+-Metodos del ciclo de vida
