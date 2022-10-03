@@ -1,7 +1,10 @@
 import React from "react";
-import logo from '../../assets/logo.jpg';
+import logoPng from '../../assets/logoPng.png';
 //importo los estilos
-import { styles } from './Navbar.style';
+//import { styles } from './Navbar.style';
+import Nav from 'react-bootstrap/Nav';
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
 
 //libreria instalada. Mirar el info.txt
 //import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -14,35 +17,39 @@ import { styles } from './Navbar.style';
 // forma 3 directamente llamar en la funcion //const Navbar = ( { titulo } ) => y se llamara en el h1 como {titulo} solamente
 
 const categorias = [
-    { id: 1, nombre: "Categoria 1", ruta: "#" },
-    { id: 2, nombre: "Categoria 2", ruta: "#" },
-    { id: 3, nombre: "Categoria 3", ruta: "#" },
-    { id: 4, nombre: "Categoria 4", ruta: "#" },
+    { id: 1, nombre: "Categoria1", ruta: "./index.html"},
+    { id: 2, nombre: "Categoria2", ruta: "./index.html"},
+    { id: 3, nombre: "Categoria3", ruta: "./index.html"},
+    { id: 4, nombre: "Categoria4", ruta: "./index.html" },
 ]
 
-const Navbar = ( { titulo , children } ) => {
+const NavbarFunction = ( { titulo , children } ) => {
 
-    return (
-        <header style={ styles.container }>
-            <img style={ styles.imagenes } src={ logo } alt="Logo de aplicacion" />
-            <h1>{ titulo }</h1>
-            <nav>
-                {
-                /* <a style={styles.categorias} href="">Categoria 1</a>
-                <a style={styles.categorias} href="">Categoria 2</a>
-                <a style={styles.categorias} href="">Categoria 3</a>
-                <a style={styles.categorias} href="">Categoria 4</a> */
-                
+        return (
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+              <Container>
+                <Navbar.Brand href="#home">
+                    <img src={ logoPng } width="150" height="100" className="d-inline-block align-top" alt="Logo de pagina"/>
+                </Navbar.Brand>
+                <Navbar.Brand href="#">{ titulo }</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="me-auto">
+                    {categorias.map((categoria) => { 
+                        return <Nav.Link key={ categoria.id } href={ categoria.ruta }> { categoria.nombre }</Nav.Link>    
+                    })}
+                  </Nav>
+                  <Nav>
+                    <Nav.Link href="#deets"></Nav.Link>
+                    <Nav.Link eventKey={2} href="#memes">
+                      { children }
+                    </Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+          );
+        }
 
-                    categorias.map((categoria) => { //si no tenemos key podemos pasar un segundo parametro llamadao ,i y ponerlo en key
-                        return <a key= { categoria.id } style={ styles.categorias } href= { categoria.ruta }> { categoria.nombre } </a> //la key es necesaria siempre en toda iteracion 
-                    })
-                }
-            </nav>
-            { children }
-        </header>
-    )
-}
- 
 //devuelvo el componente
-export default Navbar
+export default NavbarFunction

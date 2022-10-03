@@ -1,5 +1,6 @@
 import React from "react";
+import Card from 'react-bootstrap/Card';
 
 export const ItemListContainer = ( { greeting } ) => {
-    return <p>{ greeting }</p>
-} 
+  return <Card body>{ greeting }</Card>;
+}
