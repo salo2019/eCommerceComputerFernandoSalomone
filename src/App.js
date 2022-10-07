@@ -13,9 +13,8 @@ const App = () => {
   return (
     <>
       <Navbar titulo = { tituloPagina }>
-        <CartWidget />
+        <CartWidget />   
       </Navbar> 
-
       <ItemListContainer greeting = { mensaje } />
     </>
   );

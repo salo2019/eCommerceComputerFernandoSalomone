@@ -66,6 +66,15 @@ Se puede pasar componentes por props:
 
 
 
--States
+-States (variable que ante un cambio genera una actualizacion en un componente)
+
+
+
+
+
+
 -Ciclo de vida
 -Metodos del ciclo de vida
+
+
+
