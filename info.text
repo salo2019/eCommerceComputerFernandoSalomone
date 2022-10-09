@@ -67,6 +67,13 @@ Se puede pasar componentes por props:
 
 
 -States (variable que ante un cambio genera una actualizacion en un componente)
+hook: 
+*Siempre comienzan con use. 
+*Siempre se declaran dentro de un Componente
+*No se pueden declarar en condicionales (if, while, etc..)
+*Son funciones
+*Para modificar los estados se usa el "setXXX", no se modifican directamente
+
 
 
 

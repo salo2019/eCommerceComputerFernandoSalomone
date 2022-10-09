@@ -4,6 +4,7 @@ import Navbar from "./Componentes/Navbar/Navbar"; //Cualquiera que no sea js o j
 import CartWidget from "./Componentes/CartWidget/CartWidget";
 import { ItemListContainer } from "./Componentes/Contenedor/ItemListContainer";
 
+
 //llamo al componente Header
 const App = () => {
 
