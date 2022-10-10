@@ -75,12 +75,23 @@ hook:
 *Para modificar los estados se usa el "setXXX", no se modifican directamente
 
 
+-Ciclo de vida de componentes y Metodos
+Nota: No todos los componente tienen todos estos pasos, pero si la mayoria
 
+*Montaje (Mount)
+  -constructor: esta toda la info del objeto, es decir, podria ser lo que hicimos con los estados, antes del return
+  -render: dibuja lo que queremos, es decir podria ser todo lo que tenemos en el return
+  -componentDidMount: ocurre despues del render. Aca estaria las consultas que necesitamos tener, como por ejemplo, pegarle a una api. Tambien se hacen manipulaciones de estado aqui adentro. Tema de asincronismo
+*Actualizacion (Update)
+  -constructor
+  -render
+  -componentDidUpdate
+*Desmontaje (Unmount)
+  -componentWillUnmount: por ejemplo, asegura el cierre de una conexion. Entre otras cosas.
 
+PROMESA:
+  const promesa = new Promise((resolve, reject) => {})   Asi es la plantilla para las promesas
 
-
-
--Ciclo de vida
 -Metodos del ciclo de vida
 
 
