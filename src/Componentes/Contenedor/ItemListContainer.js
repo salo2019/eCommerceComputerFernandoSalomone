@@ -1,7 +1,8 @@
-import { ConstructionOutlined } from "@mui/icons-material";
+//import { ConstructionOutlined } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
 import Card from 'react-bootstrap/Card';
-import { FuncionComponenteEstados } from "../ItemCount/ItemCount";
+import { ItemList } from "./ItemList/ItemList";
+//import { FuncionComponenteEstados } from "../ItemCount/ItemCount";
 
 
 const productos = [
@@ -22,6 +23,7 @@ const obtenerProductos = new Promise((resolve, reject) => {
 export const ItemListContainer = ( { greeting } ) => {
 
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(()=>{
     obtenerProductos
@@ -33,25 +35,18 @@ export const ItemListContainer = ( { greeting } ) => {
       console.log(e);
     })
     .finally(()=>{
-      console.log("Si o si se ejecuta sea error o valida la promesa");
+      setLoading(false);
     })
   },[]);
-  
-
-  const stock = 7;
-  const onAdd = (count) => {
-    console.log("Agregaste " + count);
-  }
   
   return (
     <>
       <Card body>{greeting}</Card>
       {
-        productos.map((producto)=>{
-          return <h2 key={producto.id}>{producto.nombre}</h2>
-        })
+        <>
+          { loading ? <h2>Cargando...</h2> : <ItemList productos={productos} /> }
+        </>
       }
-      {/* <FuncionComponenteEstados stock={stock} initial={1} onAdd={onAdd} /> */}
     </>
   )
 }

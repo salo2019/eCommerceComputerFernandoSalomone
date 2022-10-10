@@ -92,7 +92,20 @@ Nota: No todos los componente tienen todos estos pasos, pero si la mayoria
 PROMESA:
   const promesa = new Promise((resolve, reject) => {})   Asi es la plantilla para las promesas
 
--Metodos del ciclo de vida
 
 
+-AJAX (asynchronous js and xml)
+  -> funciona de manera asincronica
+  -> libreria para usar fetch
+
+  ->GET
+    fetch(url)
+
+  ->POST (es necesario configurar el 2do parametro)
+    fetch(url,{
+      method:"POST",
+      headers:"",
+      body:"",
+    })
+ 
 

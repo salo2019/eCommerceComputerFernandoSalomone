@@ -2,25 +2,12 @@ import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 
 export const FuncionComponenteEstados = ( { stock, initial, onAdd } ) => {
-
-    //Asi se declaran los estados
-    // const [estado, setEstado] = useState();
-    // const [usetList, setUserList] = useState();    ....Si quisieramos un estado como lista de usuarios
-    
-    //distintos tipos de estados que se podrian crear
-    //const [usuarioNombre, setUsuarioNombre] = useState(""); //si fuera un string
-    //const [usuarios, setUsuarios] = useState([]);           //si fuera una lista de usuarios
-    //const [usuario, setUsuario] = useState({});             //si fuera un objeto usuario
     
     const [contador, setContador] = useState(initial); //se reinicia el contador con el valor que esta entre parentesis
 
-
-
-
     //-------------- UseEffect -------------------
     const [numero, setNumero] = useState(0);
-    //aqui ciclo de vida. Primero se ejecutaria el constructor, luego el render y luego esta funcion de abajo
-    //recibe paramentros -Aqui entraria la logica de componentDidUpdate y componentDidMount. 2 parametros, funcion flecha y array
+    
     useEffect(()=> {
         setNumero(numero + 1);
 
@@ -32,11 +19,8 @@ export const FuncionComponenteEstados = ( { stock, initial, onAdd } ) => {
         return(()=>{
             clearInterval(intervalo);
         })
-    },[contador]);  //cambia numero, solo al principio y cuando cambia el contador. Si lo dejo vacio el array es solo al principio. Eso hace el useEffect
+    },[]);  //cambia numero, solo al principio y cuando cambia el contador. Si lo dejo vacio el array es solo al principio. Eso hace el useEffect
     //-------------------------------------------
-
-
-
 
     const handlerClickSumar = () => {
         if (contador < stock ) {
