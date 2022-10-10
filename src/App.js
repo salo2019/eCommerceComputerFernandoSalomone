@@ -9,14 +9,13 @@ import { ItemListContainer } from "./Componentes/Contenedor/ItemListContainer";
 const App = () => {
 
   const tituloPagina = "CompuHer-Electronic";
-  const mensaje = "Todos los productos";
 
   return (
     <>
       <Navbar titulo = { tituloPagina }>
         <CartWidget />   
       </Navbar> 
-      <ItemListContainer greeting = { mensaje } />
+      <ItemListContainer />
     </>
   );
 }

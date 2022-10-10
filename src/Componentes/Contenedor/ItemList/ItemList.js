@@ -5,8 +5,9 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
-export const ItemList = ({ productos }) => {
+export const ItemList = ({ productos, title }) => {
     return <>
+        <Card body>{title}</Card>
         <CardGroup>
             {
                 productos.map((producto) => {

@@ -1,11 +1,12 @@
-//import { ConstructionOutlined } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import Card from 'react-bootstrap/Card';
 import { ItemList } from "./ItemList/ItemList";
+
+import Loading from "../Loading/Loading";
 //import { FuncionComponenteEstados } from "../ItemCount/ItemCount";
 
-export const ItemListContainer = ( { greeting } ) => {
+export const ItemListContainer = () => {
 
+  const mensaje = "Todos los productos";
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,10 +25,9 @@ export const ItemListContainer = ( { greeting } ) => {
   
   return (
     <>
-      <Card body>{greeting}</Card>
       {
         <>
-          { loading ? <h2>Cargando...</h2> : <ItemList productos={productos} /> }
+          { loading ? <Loading/> : <ItemList productos={productos} title={mensaje} /> }
         </>
       }
     </>
