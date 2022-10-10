@@ -37,7 +37,7 @@ export const FuncionComponenteEstados = ( { stock, initial, onAdd } ) => {
 
 
 
-    
+
     const handlerClickSumar = () => {
         if (contador < stock ) {
             setContador(contador + 1); //manera de sumar de a 1 al estados "contador"            
@@ -65,4 +65,4 @@ export const FuncionComponenteEstados = ( { stock, initial, onAdd } ) => {
             <Button variant="secondary" onClick={()=>onAdd(contador)}>Agregar</Button>{' '}
         </div> 
     )
-}
+} 
