@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { ItemList } from "./ItemList/ItemList";
+import { ItemList } from "../ItemList/ItemList";
 
-import Loading from "../Loading/Loading";
+import Loading from "../../../Loading/Loading";
 //import { FuncionComponenteEstados } from "../ItemCount/ItemCount";
 
 export const ItemListContainer = () => {

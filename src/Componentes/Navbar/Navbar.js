@@ -6,6 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
+import { Link, NavLink} from "react-router-dom";
+
 //libreria instalada. Mirar el info.txt
 //import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 

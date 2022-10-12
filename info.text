@@ -107,5 +107,14 @@ PROMESA:
       headers:"",
       body:"",
     })
- 
+
+ROUTING y NAVEGACION
+-> En react SPA (es decir un solo index que cambia por sus componente montandose y desmontandose sin recargar la pagina. Optimo. React lo tiene)
+-> Se puede usar una libreria llamada "React Router DOM" 
+          npm install react-router-dom
+-> Usaremos:
+  import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+1° BrowserRouter: debe envolver a todo lo que tiene impacto en la navegacion. 
+2° Importar Link y NavLink por donde este la navegacion. Se reemplazan los a por los "Link" y los href se reemplazan por "to".
 
