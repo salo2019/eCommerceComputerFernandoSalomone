@@ -117,4 +117,4 @@ ROUTING y NAVEGACION
 
 1° BrowserRouter: debe envolver a todo lo que tiene impacto en la navegacion. 
 2° Importar Link y NavLink por donde este la navegacion. Se reemplazan los a por los "Link" y los href se reemplazan por "to".
-
+3° "routes" va a envolver la parte de las vistas. Es decir, lo que va a variar en base a la navegacion

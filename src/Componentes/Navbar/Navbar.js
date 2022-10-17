@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { Link, NavLink} from "react-router-dom";
+import { NavLink as NavLinkRRD} from "react-router-dom";
 
 //libreria instalada. Mirar el info.txt
 //import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -19,10 +19,10 @@ import { Link, NavLink} from "react-router-dom";
 // forma 3 directamente llamar en la funcion //const Navbar = ( { titulo } ) => y se llamara en el h1 como {titulo} solamente
 
 const categorias = [
-    { id: 1, nombre: "Categoria1", ruta: "./index.html"},
-    { id: 2, nombre: "Categoria2", ruta: "./index.html"},
-    { id: 3, nombre: "Categoria3", ruta: "./index.html"},
-    { id: 4, nombre: "Categoria4", ruta: "./index.html" },
+    { id: 1, nombre: "Electronica", ruta: "/categoria/electronics"},
+    { id: 2, nombre: "joyeria", ruta: "categoria/jewelery"},
+    { id: 3, nombre: "Ropa de hombre", ruta: "categoria/men's clothing"},
+    { id: 4, nombre: "Ropa de mujer", ruta: "categoria/women's clothing"},
 ]
 
 const NavbarFunction = ( { titulo , children } ) => {
@@ -30,21 +30,27 @@ const NavbarFunction = ( { titulo , children } ) => {
         return (
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
               <Container>
-                <Navbar.Brand href="#home">
+                <NavLinkRRD to="/">
+                  <Navbar.Brand>
                     <img src={ logoPng } width="150" height="100" className="d-inline-block align-top" alt="Logo de pagina"/>
+                  </Navbar.Brand>
+                </NavLinkRRD>
+                <Navbar.Brand>
+                    { titulo }
                 </Navbar.Brand>
-                <Navbar.Brand href="#">{ titulo }</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
                     {categorias.map((categoria) => { 
-                        return <Nav.Link key={ categoria.id } href={ categoria.ruta }> { categoria.nombre }</Nav.Link>    
+                        return <Nav.Link><NavLinkRRD key={ categoria.id } to={ categoria.ruta }>{ categoria.nombre }</NavLinkRRD></Nav.Link>    
                     })}
                   </Nav>
                   <Nav>
                     <Nav.Link href="#deets"></Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                      { children }
+                    <Nav.Link> 
+                      <NavLinkRRD to="/cart">
+                        { children }
+                      </NavLinkRRD>
                     </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
