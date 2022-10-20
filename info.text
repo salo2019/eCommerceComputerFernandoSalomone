@@ -118,3 +118,52 @@ ROUTING y NAVEGACION
 1° BrowserRouter: debe envolver a todo lo que tiene impacto en la navegacion. 
 2° Importar Link y NavLink por donde este la navegacion. Se reemplazan los a por los "Link" y los href se reemplazan por "to".
 3° "routes" va a envolver la parte de las vistas. Es decir, lo que va a variar en base a la navegacion
+
+
+EVENTOS:
+
+Ejemplo de click
+
+import React from "react";
+
+export const ComponenteEventos = () => {
+
+    const callBack = () => {
+        console.log("hacer click")
+    }
+
+    return (
+        <>
+            <h1>ComponenteEventos</h1>
+            <button onClick={callBack}>Click</button>    
+        </>
+    )
+}
+
+Si se quiere pasa parametros tenemos que hacer funcion flecha... entonces quedaria
+
+export const ComponenteEventos = () => {
+
+    const callBack = (mensaje) => {
+        console.log(mensaje)
+    }
+
+    return (
+        <>
+            <h1>ComponenteEventos</h1>
+            <button onClick={()=>callBack("Hola va con parametros")}>Click</button>    
+        </>
+    )
+}
+
+Por defecto, al usar un callBack automaticamente por defecto viaja un parametro. El Event (e). Viaja toda la info del evento. Muchas cosas.
+Si o si se da en un evento, tipo onClick. Si la llamo la funcion sola no aparece.
+
+Entre los objetos de event tenemos el "target": Este nos que elemnto dispara el evento. Puede ser un boton, o un input. Accedemos con event.target
+Todos los eventos tienen un compartamiento default. Se trata del preventDefault que al usarlo cortamos el comportamiento default. Por ejemplo anulamos un a
+La propagacion de los click va de padres a hijos. Para frenar la propagacion hay que poner en la funcion que ejecuta el onClick la operacion event.stopPropagation(); Corta el efecto burbuja. 
+El efecto burbuja se propaga desde los hijos a los padres. No al reves
+
+
+
+

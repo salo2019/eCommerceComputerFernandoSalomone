@@ -36,7 +36,9 @@ const NavbarFunction = ( { titulo , children } ) => {
                   </Navbar.Brand>
                 </NavLinkRRD>
                 <Navbar.Brand>
+                  <NavLinkRRD to="/">
                     { titulo }
+                  </NavLinkRRD>
                 </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
