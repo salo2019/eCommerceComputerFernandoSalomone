@@ -16,7 +16,7 @@ export const ComponenteEventos = () => {
     }
 
     const handlerClickAnchor = (event) => {
-        event.preventDefault();
+        //event.preventDefault();
         console.log("Se corto el comportamiento defaul.");
     }
 

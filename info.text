@@ -164,6 +164,8 @@ Todos los eventos tienen un compartamiento default. Se trata del preventDefault 
 La propagacion de los click va de padres a hijos. Para frenar la propagacion hay que poner en la funcion que ejecuta el onClick la operacion event.stopPropagation(); Corta el efecto burbuja. 
 El efecto burbuja se propaga desde los hijos a los padres. No al reves
 
+Instalar extension React Developer Tools para navegador y ver los eventos
+
 
 
 
