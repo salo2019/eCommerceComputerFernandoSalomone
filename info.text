@@ -171,4 +171,20 @@ EXTRA: Algo !== unNumero (significa que se queda con todo menos el unNumero)
 
 
 
+CONTEXT:
+
+import { createContext } from 'react'     
+
+
+para crear: export const Context = createContext(); => puede tener o no un valor inicial o no dentro del parentesis
+
+Puedo tener muchos contxtos. 
+Permite la comunicacion entre componentes sin que tenes que retroceder a los padres.
+si hago con console log a context notaremos entre otra cosas que la info mas importante es el "Consumer" y el "Provider".
+El consumer es la informacion concreta, y provider es el que provee la informacion.
+Usaremos useContext para obtener la info, y no el consumer.
+
+Ahora.... como lo usamos en los demas componente??? 
+simplemente hay que importar el context, y importar de la libreria de react el { useContext }
+
 

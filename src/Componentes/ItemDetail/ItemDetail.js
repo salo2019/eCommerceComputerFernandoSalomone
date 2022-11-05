@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 //bootstrap
 import Card from 'react-bootstrap/Card';
@@ -6,14 +6,22 @@ import { Link } from "react-router-dom";
 import CardGroup from 'react-bootstrap/CardGroup';
 //-----------
 import { ItemCount } from "../ItemCount/ItemCount";
+import { Context } from "../../Context/CustomContext";
 
 const ItemDetail = ({ producto }) => {
 
-    //
+    //Para el cambio de visual
     const [showItemCount, setShowItemCount] = useState(true);
+    
+    //-----------forma 1. Me traigo todo lo de contexto
+    //const resultado = useContext(Context); 
+    
+    //-----------forma 2. Solo me traigo la funcion que necesita del contexto
+    const {addItem} = useContext(Context);
 
     //Para agregar
     const onAdd = (count) => {
+        addItem(producto, count);
         console.log("se agregan " + count + " unidades");
         setShowItemCount(false);
     }

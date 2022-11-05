@@ -6,6 +6,7 @@ import { Cart } from "./Componentes/Contenedor/CartView/Cart";
 import { ItemListContainer } from "./Componentes/Contenedor/ItemListContainer/ItemListContainer/ItemListContainer";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailContainer";
+import { CustomProvide } from "./Context/CustomContext";
 
 // import { ComponenteEventos } from "./Componentes/ComponenteEventos";
 // import { Users } from "./Users";
@@ -18,16 +19,18 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar titulo={tituloPagina}>
-          <CartWidget />
-        </Navbar>
-        <Routes>
-          <Route path="/" element={<ItemListContainer />}/>
-          <Route path="/categoria/:id" element={<ItemListContainer />}/>
-          <Route path="/producto/:id" element={<ItemDetailContainer />}/>
-          <Route path="/cart/" element={<Cart />}/>  
-          <Route path="*" element={<ItemListContainer />}/> {/* Ruta por defecto si se tipea una inexistente */}
-        </Routes>        
+        <CustomProvide>
+          <Navbar titulo={tituloPagina}>
+            <CartWidget />
+          </Navbar>
+          <Routes>
+            <Route path="/" element={<ItemListContainer />} />
+            <Route path="/categoria/:id" element={<ItemListContainer />} />
+            <Route path="/producto/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart/" element={<Cart />} />
+            <Route path="*" element={<ItemListContainer />} /> {/* Ruta por defecto si se tipea una inexistente */}
+          </Routes>
+        </CustomProvide>
         {/* <ComponenteEventos /> 
         <Users />  */}
       </BrowserRouter>
