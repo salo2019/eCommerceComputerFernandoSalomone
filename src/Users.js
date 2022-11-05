@@ -15,14 +15,25 @@ export const Users = () => {
 
     //funcion para agregar a lista de usuario
     const handlerClick = ()=>{
-        setLista([...lista, nombre]);
+        //con ...lista obtengo la lista como estaba, y con el otro parametro, es como si hiciera un push
+        setLista([...lista, nombre]); 
+
+        //esto es lo mismo que hacer:
+        
+        //const aux = [...lista]  => obtengo copia de la lista
+        //aux.push(nombre)
+        //setLista(aux)
+    }
+
+    const funcionDelete = (nombre) => {
+        setLista(lista.filter((nom) => nom !== nombre))
     }
 
     return (
         <div>
             <input type="text" value={nombre} onChange={handlerChange}/>
             <button onClick={handlerClick}>Agregar</button>
-            <UserList lista={lista}/>
+            <UserList lista={lista} funcionDelete={funcionDelete}/>
         </div>
     )
 }

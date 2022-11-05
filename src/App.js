@@ -7,8 +7,8 @@ import { ItemListContainer } from "./Componentes/Contenedor/ItemListContainer/It
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ItemDetailContainer from "./Componentes/ItemDetailContainer/ItemDetailContainer";
 
-import { ComponenteEventos } from "./Componentes/ComponenteEventos";
-import { Users } from "./Users";
+// import { ComponenteEventos } from "./Componentes/ComponenteEventos";
+// import { Users } from "./Users";
 
 //llamo al componente Header
 const App = () => {
@@ -28,8 +28,8 @@ const App = () => {
           <Route path="/cart/" element={<Cart />}/>  
           <Route path="*" element={<ItemListContainer />}/> {/* Ruta por defecto si se tipea una inexistente */}
         </Routes>        
-        <ComponenteEventos /> 
-        <Users /> 
+        {/* <ComponenteEventos /> 
+        <Users />  */}
       </BrowserRouter>
     </>
   );

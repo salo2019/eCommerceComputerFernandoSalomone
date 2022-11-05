@@ -166,6 +166,9 @@ El efecto burbuja se propaga desde los hijos a los padres. No al reves
 
 Instalar extension React Developer Tools para navegador y ver los eventos
 
+EXTRA: Algo !== unNumero (significa que se queda con todo menos el unNumero)
+
+
 
 
 
