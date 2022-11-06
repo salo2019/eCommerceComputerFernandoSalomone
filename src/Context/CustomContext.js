@@ -13,7 +13,9 @@ export const CustomProvide = ({ children }) => {
     //---------------- funciones ---------------------------
     //agrega un elemento al carro
     const addItem = (item, cantidad) => {
-        console.log(`esta funcion agrega el producto ${item} con la una cantida de ${cantidad}`)
+        console.log(`esta funcion agrega el producto ${item} con la una cantida de ${cantidad}`);
+        console.log("Precio " + item.price + "Titulo " + item.title);
+        setCart([...cart, item])
     }
 
     //borra un elemento del carro
@@ -22,14 +24,19 @@ export const CustomProvide = ({ children }) => {
         setCart(filtrado);
     }
 
+
+    const cantidadProducto = (item) => {
+        return cart.filter(p => p.id === item.id);
+    }
+
     //actualiza el Qty y Total. Es necesario cuando actualizamos valores hacer un userEffect
     //esto es porque react no trabaja de forma secuencia. Con eso nos aseguramos.    
     useEffect(()=> {
-        const cantidad = 0;
-        const totalC = 0;
+        let cantidad = 0;
+        let totalC = 0;
         cart.forEach(item => {
-            cantidad += item.cantidad;
-            totalC += (item.price * item.cantidad)
+            cantidad += cantidadProducto(item).length;
+            totalC += (item.price + (item.price * cantidad))
         })
         setQty(cantidad);
         setTotal(totalC);        
@@ -48,7 +55,7 @@ export const CustomProvide = ({ children }) => {
 
     //retorno
     return (
-    <Context.Provider value={{cart, qty, total, addItem, deleteItem, isInCart, clear}}> 
+    <Context.Provider value={{cart, qty, total, addItem, deleteItem, isInCart, clear, cantidadProducto}}> 
         {children} 
     </Context.Provider> //con esta envoltura, los children acceden a la info de mi contexto. En value yo le paso a los children lo que quiero que tengan disponible
     );

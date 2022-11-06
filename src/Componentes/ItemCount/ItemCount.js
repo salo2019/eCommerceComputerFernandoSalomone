@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
+
 
 export const ItemCount = ( { stock, initial, onAdd } ) => {
     
@@ -28,7 +29,11 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
             <Button variant="primary" onClick={handlerClickRestar}>-</Button>{' '}
             <Button variant="danger" onClick={handlerClickReset}>Reset</Button>{' '}
             <Button variant="secondary" disabled={stock === 0} onClick={()=>onAdd(contador)}>
-                <span>{stock === 0 ? 'No tenemos stock' : 'Agregar al carrito'}</span> 
+                <span>
+                    {stock === 0 ? 'No tenemos stock'
+                     : 
+                    'Agregar al carrito'}
+                </span> 
             </Button>
         </div> 
     )
