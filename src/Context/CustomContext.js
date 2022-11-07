@@ -10,12 +10,18 @@ export const CustomProvide = ({ children }) => {
     const [qty, setQty] = useState(0);       //estado para contar las cantidades
     const [total, setTotal] = useState(0);   //estado para la suma total del carrito
 
+   
     //---------------- funciones ---------------------------
+    
     //agrega un elemento al carro
     const addItem = (item, cantidad) => {
         console.log(`esta funcion agrega el producto ${item} con la una cantida de ${cantidad}`);
-        console.log("Precio " + item.price + "Titulo " + item.title);
-        setCart([...cart, item])
+        console.log("Precio " + item.price + "Titulo " + item.title);         
+        let itemCarro = {
+            ...item,
+            cantidad: cantidad
+        }
+        setCart([...cart, itemCarro])
     }
 
     //borra un elemento del carro
@@ -35,7 +41,8 @@ export const CustomProvide = ({ children }) => {
         let cantidad = 0;
         let totalC = 0;
         cart.forEach(item => {
-            cantidad += cantidadProducto(item).length;
+            cantidad += item.cantidad;
+            //item.cantidad = cantidadProducto(item).length;
             totalC += (item.price + (item.price * cantidad))
         })
         setQty(cantidad);

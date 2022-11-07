@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 export const Cart = () => {
 
     //me quedo con lo que necesito
-    const { cart, cantidadProducto } = useContext(Context);
+    const { cart, deleteItem } = useContext(Context);
 
     return (
         <>
@@ -17,7 +17,9 @@ export const Cart = () => {
             </h1>
             ) : (
             <>
-            {cart.map((prod) => <h1 key={prod.id}>{prod.title} {cantidadProducto(prod).length}</h1>)}
+            <li>
+                {cart.map((prod) => <h2 key={prod.id}>{prod.title} Cant: {prod.cantidad}<button onClick={()=> deleteItem(prod.id)}>Eliminar producto</button></h2>)}
+            </li>
             </>
         )}
         </>
