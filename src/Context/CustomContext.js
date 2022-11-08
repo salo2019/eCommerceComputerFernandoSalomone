@@ -17,11 +17,16 @@ export const CustomProvide = ({ children }) => {
     const addItem = (item, cantidad) => {
         console.log(`esta funcion agrega el producto ${item} con la una cantida de ${cantidad}`);
         console.log("Precio " + item.price + "Titulo " + item.title);         
-        let itemCarro = {
-            ...item,
-            cantidad: cantidad
-        }
-        setCart([...cart, itemCarro])
+        if(isInCart(item.id)){
+            cart.forEach((producto => {
+                if (producto.id === item.id) {
+                    producto.cantidad = cantidad + producto.cantidad;
+                    setCart(cart);
+                }
+            }))
+        } else {
+            setCart([...cart, {...item, cantidad}])    
+        }        
     }
 
     //borra un elemento del carro
