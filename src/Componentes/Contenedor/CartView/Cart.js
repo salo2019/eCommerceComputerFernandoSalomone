@@ -4,10 +4,12 @@ import React, { useContext } from "react";
 import { Context } from "../../../Context/CustomContext";
 import { Link } from "react-router-dom";
 
+import { CartItemView } from "./CartItemView";
+
 export const Cart = () => {
 
     //me quedo con lo que necesito
-    const { cart, deleteItem } = useContext(Context);
+    const { cart, total } = useContext(Context);
 
     return (
         <>
@@ -17,11 +19,11 @@ export const Cart = () => {
             </h1>
             ) : (
             <>
-            <li>
-                {cart.map((prod) => <h2 key={prod.id}>{prod.title} Cant: {prod.cantidad}<button onClick={()=> deleteItem(prod.id)}>Eliminar producto</button></h2>)}
-            </li>
+                {cart.map((prod) => 
+                <CartItemView id={prod.id} titulo={prod.title} cantidad={prod.cantidad} precioUnidad={prod.price} total={prod.price * prod.cantidad}/>)}
             </>
         )}
+        <span>Total carrito: {total}</span>
         </>
         )
 }

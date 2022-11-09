@@ -14,9 +14,7 @@ export const CustomProvide = ({ children }) => {
     //---------------- funciones ---------------------------
     
     //agrega un elemento al carro
-    const addItem = (item, cantidad) => {
-        console.log(`esta funcion agrega el producto ${item} con la una cantida de ${cantidad}`);
-        console.log("Precio " + item.price + "Titulo " + item.title);         
+    const addItem = (item, cantidad) => {        
         if(isInCart(item.id)){
             cart.forEach((producto => {
                 if (producto.id === item.id) {
@@ -43,14 +41,14 @@ export const CustomProvide = ({ children }) => {
     //actualiza el Qty y Total. Es necesario cuando actualizamos valores hacer un userEffect
     //esto es porque react no trabaja de forma secuencia. Con eso nos aseguramos.    
     useEffect(()=> {
-        let cantidad = 0;
         let totalC = 0;
         cart.forEach(item => {
+            let cantidad = 0;
             cantidad += item.cantidad;
             //item.cantidad = cantidadProducto(item).length;
-            totalC += (item.price + (item.price * cantidad))
+            totalC += (item.price * cantidad)
+            setQty(cantidad);
         })
-        setQty(cantidad);
         setTotal(totalC);        
     }, [cart]); //con esto de 'cart' decimos que .. cuando el estado de cart cambia, el ussetEfect actualiza.
 
