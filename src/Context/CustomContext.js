@@ -42,13 +42,15 @@ export const CustomProvide = ({ children }) => {
     //esto es porque react no trabaja de forma secuencia. Con eso nos aseguramos.    
     useEffect(()=> {
         let totalC = 0;
+        let cantCarrito = 0;
         cart.forEach(item => {
             let cantidad = 0;
+            cantCarrito += item.cantidad;
             cantidad += item.cantidad;
             //item.cantidad = cantidadProducto(item).length;
             totalC += (item.price * cantidad)
-            setQty(cantidad);
         })
+        setQty(cantCarrito);
         setTotal(totalC);        
     }, [cart]); //con esto de 'cart' decimos que .. cuando el estado de cart cambia, el ussetEfect actualiza.
 
