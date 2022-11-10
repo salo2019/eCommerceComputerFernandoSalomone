@@ -9,7 +9,7 @@ import { CartItemView } from "./CartItemView";
 export const Cart = () => {
 
     //me quedo con lo que necesito
-    const { cart, total } = useContext(Context);
+    const { cart, total, clear } = useContext(Context);
 
     return (
         <>
@@ -21,9 +21,10 @@ export const Cart = () => {
             <>
                 {cart.map((prod) => 
                 <CartItemView id={prod.id} titulo={prod.title} cantidad={prod.cantidad} precioUnidad={prod.price} total={prod.price * prod.cantidad}/>)}
+                <span>Total carrito: {total}</span><br></br>
+                <button onClick={()=> clear()}>Vaciar carrito</button>
             </>
         )}
-        <span>Total carrito: {total}</span>
         </>
         )
 }
