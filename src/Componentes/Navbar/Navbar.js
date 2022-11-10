@@ -20,9 +20,9 @@ import { NavLink as NavLinkRRD} from "react-router-dom";
 
 const categorias = [
     { id: 1, nombre: "Memorias", ruta: "categoria/memorias"},
-    // { id: 2, nombre: "joyeria", ruta: "categoria/jewelery"},
-    // { id: 3, nombre: "Ropa de hombre", ruta: "categoria/men's clothing"},
-    // { id: 4, nombre: "Ropa de mujer", ruta: "categoria/women's clothing"},
+    { id: 2, nombre: "Monitores", ruta: "categoria/monitores"},
+    { id: 3, nombre: "Consolas", ruta: "categoria/consolas"},
+    { id: 4, nombre: "Juegos", ruta: "categoria/juegos"}
 ]
 
 const NavbarFunction = ( { titulo , children } ) => {
@@ -52,6 +52,9 @@ const NavbarFunction = ( { titulo , children } ) => {
                     <Nav.Link> 
                       <NavLinkRRD to="/cart">
                         { children }
+                      </NavLinkRRD>
+                      <NavLinkRRD to="/compras">
+                        Mis compras
                       </NavLinkRRD>
                     </Nav.Link>
                   </Nav>
