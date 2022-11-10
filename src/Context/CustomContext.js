@@ -19,6 +19,7 @@ export const CustomProvide = ({ children }) => {
             cart.forEach((producto => {
                 if (producto.id === item.id) {
                     producto.cantidad = cantidad + producto.cantidad;
+                    setQty(qty + cantidad);
                     setCart(cart);
                 }
             }))
@@ -52,7 +53,7 @@ export const CustomProvide = ({ children }) => {
         })
         setQty(cantCarrito);
         setTotal(totalC);        
-    }, [cart]); //con esto de 'cart' decimos que .. cuando el estado de cart cambia, el ussetEfect actualiza.
+    }, [cart, qty]); //con esto de 'cart' decimos que .. cuando el estado de cart cambia, el ussetEfect actualiza.
 
     //para ver si un producto esta en el carrito
     const isInCart = (id) => {
