@@ -16,7 +16,7 @@ import { Compra } from "./Componentes/Compra/Compra";
 //llamo al componente Header
 const App = () => {
 
-  const tituloPagina = "Compra de todo";
+  const tituloPagina = "Todos los productos";
 
   return (
     <>

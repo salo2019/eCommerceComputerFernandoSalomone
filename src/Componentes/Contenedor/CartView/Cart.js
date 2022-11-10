@@ -33,7 +33,7 @@ export const Cart = () => {
                 <span>Total carrito: {total}</span><br></br>
                 <button onClick={()=> clear()}>Vaciar carrito</button>
                 <Link to = {'/compras/'}>
-                    <button onClick={()=> finalizarCompra(cart)}>Ir a carrito</button>
+                    <button onClick={()=> finalizarCompra(cart)}>Finalizar compra</button>
                 </Link>
             </>
         )}

@@ -53,9 +53,6 @@ const NavbarFunction = ( { titulo , children } ) => {
                       <NavLinkRRD to="/cart">
                         { children }
                       </NavLinkRRD>
-                      <NavLinkRRD to="/compras">
-                        Mis compras
-                      </NavLinkRRD>
                     </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>

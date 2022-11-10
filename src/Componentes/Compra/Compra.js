@@ -10,13 +10,14 @@ export const Compra = () => {
    console.log("lista " + lista);
 
    return <>
-   <h2>Compra Numero: xxxx</h2>
+   <br></br><br></br><h2>Felicitaciones, usted finalizó su compra</h2><br></br><br></br>
+   <h3>Detalles de compra</h3><br></br>
    <div>
        {
            compra.map((producto) => { 
                return (
                    <div>
-                           <h3>Nombre: {producto.title}</h3>
+                           <h5>Producto: {producto.title}</h5>
                            <p>Precio: ${producto.price}</p>
                            <p>Cantidad: {producto.cantidad}</p>
                    </div>
@@ -24,6 +25,6 @@ export const Compra = () => {
            })
        }
    </div>
-   <span>Precio abonado: {totalCompra}</span>
+   <h4>Precio abonado: {totalCompra}</h4>
 </>
 }
