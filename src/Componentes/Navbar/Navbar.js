@@ -19,10 +19,10 @@ import { NavLink as NavLinkRRD} from "react-router-dom";
 // forma 3 directamente llamar en la funcion //const Navbar = ( { titulo } ) => y se llamara en el h1 como {titulo} solamente
 
 const categorias = [
-    { id: 1, nombre: "Electronica", ruta: "/categoria/electronics"},
-    { id: 2, nombre: "joyeria", ruta: "categoria/jewelery"},
-    { id: 3, nombre: "Ropa de hombre", ruta: "categoria/men's clothing"},
-    { id: 4, nombre: "Ropa de mujer", ruta: "categoria/women's clothing"},
+    { id: 1, nombre: "Memorias", ruta: "categoria/memorias"},
+    // { id: 2, nombre: "joyeria", ruta: "categoria/jewelery"},
+    // { id: 3, nombre: "Ropa de hombre", ruta: "categoria/men's clothing"},
+    // { id: 4, nombre: "Ropa de mujer", ruta: "categoria/women's clothing"},
 ]
 
 const NavbarFunction = ( { titulo , children } ) => {
