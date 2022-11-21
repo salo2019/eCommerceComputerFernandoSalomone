@@ -19,7 +19,7 @@ const ItemDetailContainer = () => {
       getDoc(queryDoc)
       .then(res => setProducto({id:res.id, ...res.data()}))
       setLoading(false)
-  },[])
+  },[id]);
 
 
   //para saber en que ruta estoy parado

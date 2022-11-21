@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
+
+//Estilos nuevos
+import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+
 
 
 export const ItemCount = ( { stock, initial, onAdd } ) => {
@@ -18,23 +25,28 @@ export const ItemCount = ( { stock, initial, onAdd } ) => {
         }
     }
 
-    const handlerClickReset = () => {
-        setContador(initial); //manera de sumar de a 1 al estados "contador"
-    }
+    // const handlerClickReset = () => {
+    //     setContador(initial); //manera de sumar de a 1 al estados "contador"
+    // }
 
-    return ( 
-        <div>
-            <h2>{ contador }</h2>
-            <Button variant="primary" onClick={handlerClickSumar}>+</Button>{' '}
-            <Button variant="primary" onClick={handlerClickRestar}>-</Button>{' '}
-            <Button variant="danger" onClick={handlerClickReset}>Reset</Button>{' '}
-            <Button variant="secondary" disabled={stock === 0} onClick={()=>onAdd(contador)}>
+    return (
+        <Stack direction="row" spacing={1}>
+            <Button variant="contained" onClick={handlerClickSumar}>
+                <AddCircleOutlineIcon />
+            </Button>
+            <Button variant="contained" disabled>
+                { contador }
+            </Button>
+            <Button variant="contained" onClick={handlerClickRestar}>
+                <RemoveCircleOutlineIcon />
+            </Button>
+            <Button variant="contained" disabled={stock === 0} onClick={() => onAdd(contador)}>
                 <span>
                     {stock === 0 ? 'No tenemos stock'
-                     : 
-                    'Agregar al carrito'}
-                </span> 
+                        :
+                        'Agregar al carrito'}
+                </span>
             </Button>
-        </div> 
-    )
+        </Stack>
+    );
 } 

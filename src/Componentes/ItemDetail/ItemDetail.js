@@ -1,12 +1,19 @@
 import React, { useContext, useState } from "react";
 
-//bootstrap
-import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
-import CardGroup from 'react-bootstrap/CardGroup';
-//-----------
+
+//-----------Estilos Material ---------
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+//----------- ------------------------
+
 import { ItemCount } from "../ItemCount/ItemCount";
 import { Context } from "../../Context/CustomContext";
+
 
 const ItemDetail = ({ producto }) => {
 
@@ -26,36 +33,40 @@ const ItemDetail = ({ producto }) => {
         setShowItemCount(false);
     }
 
-
-    return <>
-        <Card body>{producto.title}</Card>
-        <CardGroup>
-            <Card key={producto.id} className="p-2">
-                <Card.Img variant="top" src={producto.image} />
-                <Card.Body>
-                    <Card.Title>${producto.price}</Card.Title>
-                    <Card.Text>
+    return (
+        <>
+            <Card sx={{ maxWidth: 400 }}>
+                <CardMedia
+                    component="img"
+                    alt="disco solido pci"
+                    height="380"
+                    image={producto.image}
+                />
+                <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
                         {producto.title}
-                    </Card.Text>
-                </Card.Body>
-                <Card.Footer>
-                   {producto.description}
-                </Card.Footer>
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                        {producto.description}
+                    </Typography>
+                </CardContent>
+                <CardActions>
+                    {showItemCount ? (
+                        <ItemCount initial={1} stock={5} onAdd={onAdd} />
+                    ) : (
+                        <>
+                            <Link to={'/cart'}>
+                                <Button size="small">Ir a carrito</Button>
+                            </Link>
+                            <Link to={'/producto'}>
+                                <Button size="small">Continuar comprando</Button>
+                            </Link>
+                        </>
+                    )}
+                </CardActions>
             </Card>
-        </CardGroup>
-        {showItemCount ? ( 
-            <ItemCount initial={1} stock={5} onAdd={onAdd} />
-        ) : (
-            <>
-            <Link to = {'/cart'}>
-                <button>Ir a carrito</button>
-            </Link>
-            <Link to = {'/producto'}>
-                <button>Continuar comprando</button>
-            </Link>
-            </>
-        )}
-    </>
+        </>
+    );
 }
 
 export default ItemDetail;
