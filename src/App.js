@@ -10,6 +10,8 @@ import { CustomProvide } from "./Context/CustomContext";
 import { CompraContextProvide } from "./Context/CompraContext";
 import { Compra } from "./Componentes/Compra/Compra";
 
+import { ThemeProvider } from "@mui/material/styles";
+
 // import { ComponenteEventos } from "./Componentes/ComponenteEventos";
 // import { Users } from "./Users";
 
@@ -20,25 +22,27 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <CompraContextProvide>
-          <CustomProvide>
-            <Navbar titulo={tituloPagina}>
-              <CartWidget />
-            </Navbar>
-            <Routes>
-              <Route path="/" element={<ItemListContainer />} />
-              <Route path="/categoria/:id" element={<ItemListContainer />} />
-              <Route path="/producto/:id" element={<ItemDetailContainer />} />
-              <Route path="/cart/" element={<Cart />} />
-              <Route path="/compras/" element={<Compra />} />
-              <Route path="*" element={<ItemListContainer />} /> {/* Ruta por defecto si se tipea una inexistente */}
-            </Routes>
-          </CustomProvide>
-        </CompraContextProvide>
-        {/* <ComponenteEventos /> 
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <CompraContextProvide>
+            <CustomProvide>
+              <Navbar titulo={tituloPagina}>
+                <CartWidget />
+              </Navbar>
+              <Routes>
+                <Route path="/" element={<ItemListContainer />} />
+                <Route path="/categoria/:id" element={<ItemListContainer />} />
+                <Route path="/producto/:id" element={<ItemDetailContainer />} />
+                <Route path="/cart/" element={<Cart />} />
+                <Route path="/compras/" element={<Compra />} />
+                <Route path="*" element={<ItemListContainer />} /> {/* Ruta por defecto si se tipea una inexistente */}
+              </Routes>
+            </CustomProvide>
+          </CompraContextProvide>
+          {/* <ComponenteEventos /> 
         <Users />  */}
-      </BrowserRouter>
+        </BrowserRouter>
+      </ThemeProvider>
     </>
   );
 }
