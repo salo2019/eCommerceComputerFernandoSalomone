@@ -7,6 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 
 import { NavLink as NavLinkRRD} from "react-router-dom";
+import CssBaseline from "@mui/material/CssBaseline";
 
 //libreria instalada. Mirar el info.txt
 //import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -25,41 +26,44 @@ const categorias = [
     { id: 4, nombre: "Juegos", ruta: "categoria/juegos"}
 ]
 
-const NavbarFunction = ( { titulo , children } ) => {
+const NavbarFunction = ({ titulo, children }) => {
 
-        return (
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-              <Container>
-                <NavLinkRRD to="/">
-                  <Navbar.Brand>
-                    <img src={ logoPng } width="150" height="100" className="d-inline-block align-top" alt="Logo de pagina"/>
-                  </Navbar.Brand>
+  return (
+    <>
+      <CssBaseline />
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Container>
+          <NavLinkRRD to="/">
+            <Navbar.Brand>
+              <img src={logoPng} width="150" height="100" className="d-inline-block align-top" alt="Logo de pagina" />
+            </Navbar.Brand>
+          </NavLinkRRD>
+          <Navbar.Brand>
+            <NavLinkRRD to="/">
+              {titulo}
+            </NavLinkRRD>
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="me-auto">
+              {categorias.map((categoria) => {
+                return <Nav.Link><NavLinkRRD key={categoria.id} to={categoria.ruta}>{categoria.nombre}</NavLinkRRD></Nav.Link>
+              })}
+            </Nav>
+            <Nav>
+              <Nav.Link href="#deets"></Nav.Link>
+              <Nav.Link>
+                <NavLinkRRD to="/cart">
+                  {children}
                 </NavLinkRRD>
-                <Navbar.Brand>
-                  <NavLinkRRD to="/">
-                    { titulo }
-                  </NavLinkRRD>
-                </Navbar.Brand>
-                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                <Navbar.Collapse id="responsive-navbar-nav">
-                  <Nav className="me-auto">
-                    {categorias.map((categoria) => { 
-                        return <Nav.Link><NavLinkRRD key={ categoria.id } to={ categoria.ruta }>{ categoria.nombre }</NavLinkRRD></Nav.Link>    
-                    })}
-                  </Nav>
-                  <Nav>
-                    <Nav.Link href="#deets"></Nav.Link>
-                    <Nav.Link> 
-                      <NavLinkRRD to="/cart">
-                        { children }
-                      </NavLinkRRD>
-                    </Nav.Link>
-                  </Nav>
-                </Navbar.Collapse>
-              </Container>
-            </Navbar>
-          );
-        }
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </>
+  );
+}
 
 //devuelvo el componente
 export default NavbarFunction

@@ -11,7 +11,8 @@ import { CompraContextProvide } from "./Context/CompraContext";
 import { Compra } from "./Componentes/Compra/Compra";
 
 import { ThemeProvider } from "@mui/material/styles";
-
+import Theme from "./themeConfig";
+ 
 // import { ComponenteEventos } from "./Componentes/ComponenteEventos";
 // import { Users } from "./Users";
 
@@ -22,7 +23,7 @@ const App = () => {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={Theme}>
         <BrowserRouter>
           <CompraContextProvide>
             <CustomProvide>
