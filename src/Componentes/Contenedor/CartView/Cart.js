@@ -2,23 +2,18 @@ import React, { useContext } from "react";
 
 //traigo el contexto con los datos
 import { Context } from "../../../Context/CustomContext";
-import { ContextCompra } from "../../../Context/CompraContext";
 
 import { Link } from "react-router-dom";
 
 import { CartItemView } from "./CartItemView";
 
+import FormFinalizarCompra from "../../Compra/FormFinalizarCompra";
+
+
 export const Cart = () => {
 
     //me quedo con lo que necesito
     const { cart, total, clear } = useContext(Context);
-    const { addCompra } = useContext(ContextCompra);
-
-    const finalizarCompra = (carrito) => {
-        addCompra(carrito);
-        clear(carrito);
-    }
-
 
     return (
         <>
@@ -32,9 +27,7 @@ export const Cart = () => {
                     <CartItemView key={prod.id} id={prod.id} titulo={prod.title} cantidad={prod.cantidad} precioUnidad={prod.price} total={prod.price * prod.cantidad} />)}
                     <span>Total carrito: {total}</span><br></br>
                     <button onClick={() => clear()}>Vaciar carrito</button>
-                    <Link to={'/compras/'}>
-                        <button onClick={() => finalizarCompra(cart)}>Finalizar compra</button>
-                    </Link>
+                    <FormFinalizarCompra />    
                 </>
             )}
         </>
