@@ -35,7 +35,7 @@ export const CompraContextProvide = ({ children }) => {
         getDocs(queryCollection).then(res => {
             setCompra( res.docs.map(venta  => ({id:venta.id, ...venta.data()})))
         })
-    }, []);
+    }, [compra]);
 
     //retorno
     return (
