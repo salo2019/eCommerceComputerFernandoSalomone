@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 
 import { Context } from "../../Context/CustomContext";
-import { ContextCompra } from '../../Context/CompraContext';
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 
 
@@ -10,7 +9,6 @@ function FormFinalizarCompra() {
 
     //me quedo con lo que necesito
     const { cart, clear, total } = useContext(Context);
-    const { addCompra } = useContext(ContextCompra);
 
     function clicEvento(evento){
         
@@ -35,7 +33,6 @@ function FormFinalizarCompra() {
         })
         .then(result => {
             alert("Compra exitosa. Su numero de compra es: " + result.id);
-            addCompra(cart);
             clear(cart);
         })
         .catch(e => {
@@ -47,7 +44,7 @@ function FormFinalizarCompra() {
             <form onSubmit={clicEvento}>
                 <br></br>
                 <br></br>
-                <h3>Finalizar compra</h3>
+                <h3>Ingrese datos para finalizar la compra</h3>
                 <input type="text" placeholder="Nombre"/>
                 <input type="text" placeholder="Apellido"/>
                 <input type="email" placeholder="Email"/>      

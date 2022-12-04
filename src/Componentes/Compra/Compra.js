@@ -4,27 +4,22 @@ import { ContextCompra } from "../../Context/CompraContext";
 
 export const Compra = () => {
 
-   const { compra, totalCompra } = useContext(ContextCompra);
- 
-   const lista = [...compra];
-   console.log("lista " + lista);
+   const { compra } = useContext(ContextCompra);
 
    return <>
-   <br></br><br></br><h2>Felicitaciones, usted finalizó su compra</h2><br></br><br></br>
-   <h3>Detalles de compra</h3><br></br>
+   <br></br><br></br><h2>Compras realizadas</h2><br></br><br></br>
    <div>
        {
            compra.map((producto) => { 
                return (
                    <div key={producto.id}>
-                           <h5>Producto: {producto.title}</h5>
-                           <p>Precio: ${producto.price}</p>
-                           <p>Cantidad: {producto.cantidad}</p>
+                           <h4>Codigo de compra: {producto.id}</h4>
+                           <h4>Nombre comprador: {producto.comprador.nombre + " " + producto.comprador.apellido }</h4>
+                           <br></br><br></br>
                    </div>
                )
            })
        }
    </div>
-   <h4>Precio abonado: {totalCompra}</h4>
 </>
 }
