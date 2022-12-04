@@ -8,14 +8,20 @@ import { Context } from "../../Context/CustomContext";
 
 
 const CartWidget = () => {
-     //para este componente me traigo solo lo que necesito que es la cantidad
-    const { qty } = useContext(Context);
+  //para este componente me traigo solo lo que necesito que es la cantidad
+  const { qty } = useContext(Context);
 
-    //retorno
-    return <> 
-             <p>{ qty }</p>
-             <ShoppingCartIcon color="primary" fontSize="large"/> 
-           </>
+  //retorno
+  return <>
+    <p>
+      {qty === 0 ?
+        'Carrito vacio'
+        :
+        <>{qty}</>
+      }
+    </p>
+    <ShoppingCartIcon color="primary" fontSize="large" />
+  </>
 }
 
 export default CartWidget;

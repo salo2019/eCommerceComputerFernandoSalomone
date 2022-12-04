@@ -2,13 +2,15 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 
 
-export const ItemCount = ( { stock, initial, onAdd } ) => {
+
+export const ItemCount = ( { stock, initial, onAdd, idProducto } ) => {
     
+
     const [contador, setContador] = useState(initial); //se reinicia el contador con el valor que esta entre parentesis
 
     const handlerClickSumar = () => {
-        if (contador < stock ) {
-            setContador(contador + 1); //manera de sumar de a 1 al estados "contador"            
+        if (contador < stock ) {            
+            setContador(contador + 1); //manera de sumar de a 1 al estados "contador"
         }
     }
 

@@ -7,9 +7,6 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 
 
-
-
-
 export const ItemList = ({ productos, title }) => {
     return <>
         <Card body>{title}</Card>

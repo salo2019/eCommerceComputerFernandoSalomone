@@ -44,7 +44,7 @@ const ItemDetail = ({ producto }) => {
             </Card>
         </CardGroup>
         {showItemCount ? ( 
-            <ItemCount initial={1} stock={5} onAdd={onAdd} />
+            <ItemCount initial={1} stock={producto.cantidad} onAdd={onAdd} idProducto={producto.id} />
         ) : (
             <>
             <Link to = {'/cart'}>

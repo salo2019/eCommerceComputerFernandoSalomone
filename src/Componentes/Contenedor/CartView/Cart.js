@@ -22,21 +22,21 @@ export const Cart = () => {
 
     return (
         <>
-        {cart.length === 0 ? (
-            <h1>
-                No hay productos en el carrito. Ir a <Link to={"/"}>HOME</Link>
-            </h1>
+            {cart.length === 0 ? (
+                <h1>
+                    No hay productos en el carrito. Ir a <Link to={"/"}>HOME</Link>
+                </h1>
             ) : (
-            <>
-                {cart.map((prod) => 
-                <CartItemView id={prod.id} titulo={prod.title} cantidad={prod.cantidad} precioUnidad={prod.price} total={prod.price * prod.cantidad}/>)}
-                <span>Total carrito: {total}</span><br></br>
-                <button onClick={()=> clear()}>Vaciar carrito</button>
-                <Link to = {'/compras/'}>
-                    <button onClick={()=> finalizarCompra(cart)}>Finalizar compra</button>
-                </Link>
-            </>
-        )}
+                <>
+                    {cart.map((prod) =>
+                    <CartItemView key={prod.id} id={prod.id} titulo={prod.title} cantidad={prod.cantidad} precioUnidad={prod.price} total={prod.price * prod.cantidad} />)}
+                    <span>Total carrito: {total}</span><br></br>
+                    <button onClick={() => clear()}>Vaciar carrito</button>
+                    <Link to={'/compras/'}>
+                        <button onClick={() => finalizarCompra(cart)}>Finalizar compra</button>
+                    </Link>
+                </>
+            )}
         </>
-        )
+    )
 }

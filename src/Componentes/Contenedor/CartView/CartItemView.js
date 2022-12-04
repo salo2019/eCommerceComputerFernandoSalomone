@@ -8,7 +8,7 @@ export const CartItemView = ({id, titulo, cantidad, precioUnidad, total}) => {
     const { deleteItem } = useContext(Context);
 
     return (
-        <ul>
+        <ul key={id}>
             <li>Producto: {titulo}</li>
             <li>Cantidad: {cantidad}</li>
             <li>Precio unitario: {precioUnidad}</li>

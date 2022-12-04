@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { ItemList } from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 
-import Loading from "../../../Loading/Loading";
+//import Loading from "../../../Loading/Loading";
 //import { FuncionComponenteEstados } from "../ItemCount/ItemCount";
 
 //configurando firestore
@@ -29,19 +29,17 @@ export const ItemListContainer = () => {
     })
   }
   
-  useEffect(()=>{
+  useEffect(() => {
     setLoading(true);
 
     const querydb = getFirestore()
     const queryCollection = collection(querydb, 'productos')
-    
-    if (id){
-    const queryFilter = query(queryCollection, where('category','==', id))
-  
-    filtrarData(queryFilter)
+
+    if (id) {
+      const queryFilter = query(queryCollection, where('category', '==', id))
+      filtrarData(queryFilter)
       setLoading(false)
-    }            
-    
+    }
     else {
       filtrarData(queryCollection)
       setLoading(false)
@@ -68,7 +66,7 @@ export const ItemListContainer = () => {
     <>
       {
         <>
-          { loading ? <Loading/> : <ItemList productos={productos} title={mensaje} /> }
+          { loading ? "Cargando productos" : <ItemList productos={productos} title={mensaje} /> }
         </>
       }
     </>

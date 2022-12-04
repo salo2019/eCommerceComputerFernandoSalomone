@@ -25,6 +25,13 @@ const categorias = [
     { id: 4, nombre: "Juegos", ruta: "categoria/juegos"}
 ]
 
+const stylesNavbar = {
+  padre: {
+    float: "left",
+    padding: "5px",
+  }
+};
+
 const NavbarFunction = ( { titulo , children } ) => {
 
         return (
@@ -43,17 +50,14 @@ const NavbarFunction = ( { titulo , children } ) => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="me-auto">
-                    {categorias.map((categoria) => { 
-                        return <Nav.Link><NavLinkRRD key={ categoria.id } to={ categoria.ruta }>{ categoria.nombre }</NavLinkRRD></Nav.Link>    
-                    })}
+                      {categorias.map((categoria) => { 
+                            return <div key={categoria.id} style={stylesNavbar.padre}><NavLinkRRD key={ categoria.id } to={ categoria.ruta }>{ categoria.nombre }</NavLinkRRD></div>     
+                      })}
                   </Nav>
                   <Nav>
-                    <Nav.Link href="#deets"></Nav.Link>
-                    <Nav.Link> 
                       <NavLinkRRD to="/cart">
                         { children }
                       </NavLinkRRD>
-                    </Nav.Link>
                   </Nav>
                 </Navbar.Collapse>
               </Container>

@@ -16,7 +16,7 @@ export const Compra = () => {
        {
            compra.map((producto) => { 
                return (
-                   <div>
+                   <div key={producto.id}>
                            <h5>Producto: {producto.title}</h5>
                            <p>Precio: ${producto.price}</p>
                            <p>Cantidad: {producto.cantidad}</p>
